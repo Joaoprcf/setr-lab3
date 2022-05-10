@@ -14,4 +14,21 @@
 int main(void)
 {
 	printf("OK\n");
+	while (1)
+	{
+		resetInitialState();
+		eventLoop(0, 0);
+		eventLoop(COININSERT, 0);
+		eventLoop(0, 0);
+		eventLoop(COININSERT, 1);
+		eventLoop(0, 0);
+		eventLoop(CHANGEPRODUCT, 1);
+		eventLoop(0, 0);
+		eventLoop(RETURNCREDIT, 0);
+		eventLoop(0, 0);
+		eventLoop(COININSERT, 3);
+		eventLoop(0, 0);
+		eventLoop(SELECTPRODUCT, 0);
+		eventLoop(0, 0);
+	}
 }
