@@ -2,7 +2,7 @@
 #include "setrp3.h"
 
 /* CONSTANTS */
-unsigned int PRICE[NUM_PRODUCTS] = {50, 100, 150};
+unsigned int PRICE[NUM_PRODUCTS] = {150, 100, 50};
 unsigned int COIN_VALUE[NUM_COINS] = {10, 20, 50, 100};
 
 #define MAX_STRING_SIZE 15
