@@ -17,13 +17,13 @@
 #include <inttypes.h>
 
 #define NUM_PRODUCTS 3 ///< Number of available products
-#define NUM_COINS 4 ///< Number of coins accepted
+#define NUM_COINS 4    ///< Number of coins accepted
 
-#define IDLE 0 ///< Idle state identifier
-#define COININSERT 1 ///< Coin insertion state identifier
+#define IDLE 0          ///< Idle state identifier
+#define COININSERT 1    ///< Coin insertion state identifier
 #define CHANGEPRODUCT 2 ///< Change product state identifier
 #define SELECTPRODUCT 3 ///< Select product state identifier
-#define RETURNCREDIT 4 ///< Return credit state identifier
+#define RETURNCREDIT 4  ///< Return credit state identifier
 
 /* SOLUTION CODE */
 
