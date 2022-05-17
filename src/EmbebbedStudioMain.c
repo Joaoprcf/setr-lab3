@@ -107,7 +107,7 @@ int changeSelectedProduct(int direction)
 }
 
 /**
- * @brief
+ * @brief Reset initial state.
  *
  */
 void resetInitialState(void)
@@ -118,10 +118,10 @@ void resetInitialState(void)
 }
 
 /**
- * @brief
+ * @brief Manage events and define corresponding actions to the state machine.
  *
- * @param event
- * @param index
+ * @param[in] event Event triggered
+ * @param[in] index Event external data
  */
 void eventLoop(char event, int index)
 {
