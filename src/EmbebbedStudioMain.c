@@ -45,9 +45,9 @@ unsigned char state = IDLE;
 unsigned char eventdata = 0;
 
 /**
- * @brief
+ * @brief Insert coin function
  *
- * @param index
+ * @param[in] index Coin index to be inserted
  * @return int
  */
 int insertCoin(int index)
@@ -61,7 +61,7 @@ int insertCoin(int index)
 }
 
 /**
- * @brief
+ * @brief Buy selected product to be dispensed if enough credit is available.
  *
  * @return int
  */
@@ -81,7 +81,7 @@ int select(void)
 }
 
 /**
- * @brief
+ * @brief Return credit to user, setting the current device value to 0.
  *
  * @return int
  */
@@ -93,9 +93,9 @@ int returnCredit(void)
 }
 
 /**
- * @brief
+ * @brief Change the current selected product
  *
- * @param direction
+ * @param[in] direction Either -1 or 1 to select the previous or the next product respectively
  * @return int
  */
 int changeSelectedProduct(int direction)
