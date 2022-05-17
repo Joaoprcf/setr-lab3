@@ -1,6 +1,6 @@
 /**
  * @file EmbebbedStudioMain.c
- * @author João Ferreira (joaoprcf@ua.pt), Daniel Oliveira (danielsoliveira@ua.pt), João Carvalho
+ * @author João Ferreira (joaoprcf@ua.pt), Daniel Oliveira (danielsoliveira@ua.pt), João Carvalho (jpmffc@ua.pt)
  * @brief SETR lab 3 project
  * @version 0.1
  * @date 2022-05-17
