@@ -45,7 +45,7 @@ unsigned char state = IDLE;
 unsigned char eventdata = 0;
 
 /**
- * @brief Insert coin function
+ * @brief Insert coin logic, the credit is increased according to the value of the inserted coin.
  *
  * @param[in] index Coin index to be inserted
  * @return int
@@ -95,7 +95,7 @@ int returnCredit(void)
 /**
  * @brief Change the current selected product
  *
- * @param[in] direction Either -1 or 1 to select the previous or the next product respectively
+ * @param[in] direction Either -1 or 1 to select the previous or the next product respectively.
  * @return int
  */
 int changeSelectedProduct(int direction)
