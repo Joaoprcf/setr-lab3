@@ -171,13 +171,13 @@ void eventLoop(char event, int index)
 #define SW1_NODE DT_ALIAS(sw1)
 #define SW2_NODE DT_ALIAS(sw2)
 #define SW3_NODE DT_ALIAS(sw3)
-#define SW4_NODE 0x1c
-#define SW5_NODE 0x1d
-#define SW6_NODE 0x1e
-#define SW7_NODE 0x1f
-#define INT_BUTTON_NUM 4
-#define EXT_BUTTON_NUM 4
-#define BUTTON_NUM (INT_BUTTON_NUM + EXT_BUTTON_NUM)
+#define SW4_NODE 0x1c ///< Alias for external button 0
+#define SW5_NODE 0x1d ///< Alias for external button 1
+#define SW6_NODE 0x1e ///< Alias for external button 2
+#define SW7_NODE 0x1f ///< Alias for external button 3
+#define INT_BUTTON_NUM 4 ///< Internal button number 
+#define EXT_BUTTON_NUM 4 ///< External button number
+#define BUTTON_NUM (INT_BUTTON_NUM + EXT_BUTTON_NUM) ///< Total number of buttons
 
 #if !DT_NODE_HAS_STATUS(SW0_NODE, okay)
 #error "Unsupported board: sw0 devicetree alias is not defined"
