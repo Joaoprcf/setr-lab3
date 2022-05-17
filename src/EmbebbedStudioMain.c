@@ -165,12 +165,12 @@ void eventLoop(char event, int index)
 
 /* END SOLUTION CODE */
 
-#define SLEEP_TIME_MS 1
-#define GPIO0_NID DT_NODELABEL(gpio0)
-#define SW0_NODE DT_ALIAS(sw0)
-#define SW1_NODE DT_ALIAS(sw1)
-#define SW2_NODE DT_ALIAS(sw2)
-#define SW3_NODE DT_ALIAS(sw3)
+#define SLEEP_TIME_MS 1               ///< Sleep time between loop iterations
+#define GPIO0_NID DT_NODELABEL(gpio0) ///< Alias for the node label
+#define SW0_NODE DT_ALIAS(sw0)        ///< Alias for internal button 0
+#define SW1_NODE DT_ALIAS(sw1)        ///< Alias for internal button 1
+#define SW2_NODE DT_ALIAS(sw2)        ///< Alias for internal button 2
+#define SW3_NODE DT_ALIAS(sw3)        ///< Alias for internal button 3
 #define SW4_NODE 0x1c
 #define SW5_NODE 0x1d
 #define SW6_NODE 0x1e
@@ -179,9 +179,6 @@ void eventLoop(char event, int index)
 #define EXT_BUTTON_NUM 4
 #define BUTTON_NUM (INT_BUTTON_NUM + EXT_BUTTON_NUM)
 
-#if !DT_NODE_HAS_STATUS(SW0_NODE, okay)
-#error "Unsupported board: sw0 devicetree alias is not defined"
-#endif
 static const struct gpio_dt_spec buttons[] = {
     GPIO_DT_SPEC_GET_OR(SW0_NODE, gpios, {0}),
     GPIO_DT_SPEC_GET_OR(SW1_NODE, gpios, {0}),
@@ -206,7 +203,13 @@ typedef struct debouncer
 static struct debouncer buttondb[BUTTON_NUM];
 
 const struct device *gpio0_dev[EXT_BUTTON_NUM];
-void main(void)
+
+/**
+ * @brief Main
+ *
+ * @return int
+ */
+int main(void)
 {
 
   for (int btidx = 0; btidx < INT_BUTTON_NUM; btidx++)
@@ -215,7 +218,7 @@ void main(void)
     {
       printk("Error: buttons[%d] device %s is not ready\n",
              btidx, buttons[btidx].port->name);
-      return;
+      return 1;
     }
 
     int ret;
@@ -225,7 +228,7 @@ void main(void)
     {
       printk("Error %d: failed to configure %s pin %d\n",
              ret, buttons[btidx].port->name, buttons[btidx].pin);
-      return;
+      return 1;
     }
 
     buttondb[btidx].dcIndex = 0;
@@ -241,7 +244,7 @@ void main(void)
     {
       printk("Error %d: failed to configure external button at index %d\n",
              ret, btidx);
-      return;
+      return 1;
     }
     printk("ret: %d\n", ret);
 
@@ -304,4 +307,5 @@ void main(void)
     eventLoop(event, evdata);
     k_msleep(SLEEP_TIME_MS);
   }
+  return 0;
 }
