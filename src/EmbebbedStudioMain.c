@@ -165,19 +165,19 @@ void eventLoop(char event, int index)
 
 /* END SOLUTION CODE */
 
-#define SLEEP_TIME_MS 1               ///< Sleep time between loop iterations
-#define GPIO0_NID DT_NODELABEL(gpio0) ///< Alias for the node label
-#define SW0_NODE DT_ALIAS(sw0)        ///< Alias for internal button 0
-#define SW1_NODE DT_ALIAS(sw1)        ///< Alias for internal button 1
-#define SW2_NODE DT_ALIAS(sw2)        ///< Alias for internal button 2
-#define SW3_NODE DT_ALIAS(sw3)        ///< Alias for internal button 3
-#define SW4_NODE 0x1c
-#define SW5_NODE 0x1d
-#define SW6_NODE 0x1e
-#define SW7_NODE 0x1f
-#define INT_BUTTON_NUM 4
-#define EXT_BUTTON_NUM 4
-#define BUTTON_NUM (INT_BUTTON_NUM + EXT_BUTTON_NUM)
+#define SLEEP_TIME_MS 1                              ///< Sleep time between loop iterations
+#define GPIO0_NID DT_NODELABEL(gpio0)                ///< Alias for the node label
+#define SW0_NODE DT_ALIAS(sw0)                       ///< Alias for internal button 0
+#define SW1_NODE DT_ALIAS(sw1)                       ///< Alias for internal button 1
+#define SW2_NODE DT_ALIAS(sw2)                       ///< Alias for internal button 2
+#define SW3_NODE DT_ALIAS(sw3)                       ///< Alias for internal button 3
+#define SW4_NODE 0x1c                                ///< Alias for external button 0
+#define SW5_NODE 0x1d                                ///< Alias for external button 1
+#define SW6_NODE 0x1e                                ///< Alias for external button 2
+#define SW7_NODE 0x1f                                ///< Alias for external button 3
+#define INT_BUTTON_NUM 4                             ///< Internal button number
+#define EXT_BUTTON_NUM 4                             ///< External button number
+#define BUTTON_NUM (INT_BUTTON_NUM + EXT_BUTTON_NUM) ///< Total number of buttons
 
 static const struct gpio_dt_spec buttons[] = {
     GPIO_DT_SPEC_GET_OR(SW0_NODE, gpios, {0}),
